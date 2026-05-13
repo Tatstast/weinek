@@ -12898,6 +12898,52 @@
     <!-- Start of bodyEnd -->
 
     <!-- End of bodyEnd -->
+<script>
+(function() {
+  var members = [
+    { slug: 'ulrike-weinek', name: 'Ulrike Weinek', role: 'Lyrikerin', img: null },
+    { slug: 'linus-weinek', name: 'Linus Weinek', role: 'Musiker', img: null },
+    { slug: 'adrian-umberto-weinek', name: 'Adrian Umberto Weinek', role: 'Schauspieler', img: null },
+    { slug: 'thomas-weinek', name: 'Thomas Weinek', role: 'Sprecher', img: './images/thomas-weinek.jpg' }
+  ];
+
+  function patch() {
+    var section = document.getElementById('familie-weinek');
+    if (!section) return false;
+    var cards = section.querySelectorAll('.framer-1asrafv-container');
+    if (cards.length < 3) return false;
+    cards.forEach(function(card, i) {
+      if (i >= members.length) return;
+      var m = members[i];
+      card.querySelectorAll('a').forEach(function(a) {
+        a.href = './familie/' + m.slug;
+      });
+      var nameEl = card.querySelector('.framer-oudjxr .framer-text, .framer-oudjxr div');
+      if (nameEl) nameEl.textContent = m.name;
+      var roleEl = card.querySelector('.framer-n118nn .framer-text, .framer-n118nn p');
+      if (roleEl) roleEl.textContent = m.role;
+      var img = card.querySelector('.framer-13qwssr img');
+      if (img) {
+        img.src = m.img || 'https://placehold.co/344x367/3d1a0d/ffffff?text=Foto';
+        img.srcset = '';
+      }
+    });
+    return cards.length >= 3;
+  }
+
+  var attempts = 0;
+  var iv = setInterval(function() {
+    if (patch() || ++attempts > 100) clearInterval(iv);
+  }, 100);
+
+  var observer = new MutationObserver(function() { patch(); });
+  document.addEventListener('DOMContentLoaded', function() {
+    var section = document.getElementById('familie-weinek');
+    if (section) observer.observe(section, { childList: true, subtree: true });
+    patch();
+  });
+})();
+</script>
 </body>
 
 </html>
