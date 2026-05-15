@@ -151,6 +151,24 @@ h1, h2, h3 {
 .btn-primary .btn-icon { background: rgba(255, 255, 255, 0.3); color: var(--bg-dark); }
 .btn-ghost .btn-icon { background: rgba(241, 127, 63, 0.15); color: var(--accent); }
 
+/* Button mit weißer Pfeil-Box (Framer-Style) */
+.btn-with-box {
+    padding-right: 8px;
+    gap: 10px;
+}
+.btn-icon-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: #fff;
+    color: var(--bg-dark);
+    font-size: 14px;
+    font-weight: 700;
+}
+
 /* Buttons */
 .btn {
     display: inline-flex;
@@ -299,13 +317,16 @@ h1, h2, h3 {
 }
 .ueber-photo img { width: 100%; height: 100%; object-fit: cover; }
 .ueber-text-side { position: relative; }
+.ueber-cta-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
 .ueber-deco {
-    position: absolute;
-    right: -10px;
-    top: -40px;
-    width: 60px;
+    width: 70px;
     height: auto;
-    opacity: 0.7;
+    opacity: 0.8;
+    transform: rotate(-10deg);
 }
 .ueber-text-side h2 {
     font-size: clamp(28px, 3.6vw, 40px);
@@ -332,17 +353,8 @@ h1, h2, h3 {
     font-weight: 500;
     font-size: 15px;
 }
-.check {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: var(--accent);
-    color: #fff;
-    font-size: 13px;
-    font-weight: 700;
+.check-seal {
+    color: var(--text-dark);
     flex-shrink: 0;
 }
 
@@ -384,19 +396,10 @@ h1, h2, h3 {
 .stat-logos .stat-label { margin-bottom: 8px; font-weight: 600; }
 .stat-icons {
     display: flex;
-    gap: 6px;
+    gap: 8px;
+    align-items: center;
 }
-.stat-dot {
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: var(--text-dim);
-    opacity: 0.5;
-}
-.stat-dot-1 { background: #4285F4; opacity: 0.9; }
-.stat-dot-2 { background: #1DB954; opacity: 0.9; }
-.stat-dot-3 { background: #872EC4; opacity: 0.9; }
-.stat-dot-4 { background: var(--accent); opacity: 0.9; }
+.stat-icons img { width: 30px; height: 30px; display: block; }
 
 /* Preise preview box */
 .preise-preview {
