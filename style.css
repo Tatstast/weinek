@@ -348,6 +348,152 @@ h1, h2, h3 {
 .stat-dot-3 { background: #872EC4; opacity: 0.9; }
 .stat-dot-4 { background: var(--accent); opacity: 0.9; }
 
+/* Leistungen */
+.leistungen-bg {
+    background:
+        linear-gradient(180deg, rgba(26, 15, 11, 0.92), rgba(37, 24, 20, 0.92)),
+        url('assets/images/background-2.jpg') center/cover no-repeat;
+}
+.leistungen-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 48px;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+.leistungen-head h2 {
+    font-size: clamp(28px, 4.2vw, 44px);
+    max-width: 580px;
+}
+.leistungen-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.leistung {
+    background: var(--bg-card);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    transition: transform .25s, border-color .25s;
+}
+.leistung:hover { transform: translateY(-4px); border-color: var(--accent); }
+.leistung-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(241, 127, 63, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+.leistung-icon img { width: 26px; height: 26px; }
+.leistung h3 {
+    font-size: 19px;
+    margin-bottom: 4px;
+    color: var(--text-light);
+}
+.leistung-meta {
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 14px;
+}
+.leistung-desc { color: var(--text-muted); font-size: 14px; }
+
+/* Preise */
+.preise-card {
+    max-width: 520px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1.5px solid rgba(0, 0, 0, 0.08);
+    border-radius: var(--radius);
+    padding: 40px 32px;
+    text-align: center;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.05);
+}
+.preise-icon { font-size: 40px; margin-bottom: 14px; }
+.preise-card h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+}
+.preise-card p {
+    color: var(--text-dark-muted);
+    margin-bottom: 24px;
+}
+
+/* Testimonials */
+.testimonials-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 60px;
+    align-items: center;
+}
+.testimonials-text h2 {
+    font-size: clamp(28px, 4vw, 40px);
+    margin-bottom: 16px;
+}
+.testimonials-text p { color: var(--text-dark-muted); }
+.testimonials-list { display: flex; flex-direction: column; gap: 20px; }
+.testimonial {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.06);
+    position: relative;
+}
+.testimonial-quote {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 70px;
+    color: var(--accent);
+    line-height: 0.6;
+    margin-bottom: 8px;
+}
+.testimonial p {
+    color: var(--text-dark);
+    margin-bottom: 18px;
+    font-size: 15px;
+}
+.testimonial footer strong {
+    display: block;
+    color: var(--text-dark);
+    font-size: 15px;
+}
+.testimonial footer span { font-size: 13px; color: var(--text-dark-muted); }
+
+/* Kontakt */
+.kontakt-inner {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+.kontakt-text h2 {
+    font-size: clamp(28px, 4vw, 40px);
+    margin-bottom: 16px;
+}
+.kontakt-text p {
+    color: var(--text-dark-muted);
+    margin-bottom: 24px;
+    max-width: 480px;
+}
+.kontakt-note {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.06);
+}
+.kontakt-note-icon { font-size: 28px; margin-bottom: 10px; }
+.kontakt-note h3 {
+    font-size: 18px;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+.kontakt-note p { color: var(--text-dark-muted); font-size: 14px; margin: 0; }
+
 /* Placeholder marker for unbuilt sections */
 .placeholder-note {
     text-align: center;
@@ -382,10 +528,14 @@ h1, h2, h3 {
 @media (max-width: 1000px) {
     .family-grid { grid-template-columns: repeat(2, 1fr); }
     .ueber-inner { grid-template-columns: 1fr; gap: 40px; }
+    .leistungen-grid { grid-template-columns: repeat(2, 1fr); }
+    .testimonials-inner { grid-template-columns: 1fr; gap: 40px; }
+    .kontakt-inner { grid-template-columns: 1fr; gap: 40px; }
 }
 @media (max-width: 720px) {
     .audio-grid { grid-template-columns: 1fr; }
     .ueber-stats { grid-template-columns: 1fr; padding: 24px; }
+    .leistungen-head { flex-direction: column; align-items: flex-start; }
 }
 @media (max-width: 760px) {
     .site-header { top: 10px; }
