@@ -1,0 +1,2 @@
+import{c as a}from"https://app.framerstatic.com/chunk-VYKXUNIW.mjs";import{j as t,k as r,l as o}from"https://app.framerstatic.com/chunk-2ISXLZC6.mjs";var u={kit:"off",sites:"on",skipInterstitial:"off",crdt:a()?"on":"off",canvasPages:"off"},e=new t(u,{assertIfUsedBeforeUpdate:!0});typeof window<"u"&&window.framerProjectFeatures&&e.update(window.framerProjectFeatures);function i(s){return o(e,s,n=>n==="on")}var p=r(e);export{u as a,e as b,i as c};
+//# sourceMappingURL=https://app.framerstatic.com/chunk-FOCLX7NZ.mjs.map
