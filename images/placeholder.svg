@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 430" preserveAspectRatio="xMidYMid slice">
+  <rect width="400" height="430" fill="#3a2a22"/>
+  <circle cx="200" cy="170" r="65" fill="#7b4527" opacity="0.55"/>
+  <path d="M 80 430 C 80 320 130 270 200 270 C 270 270 320 320 320 430 Z" fill="#7b4527" opacity="0.55"/>
+  <text x="200" y="395" font-family="sans-serif" font-size="22" fill="#f17f3f" text-anchor="middle" opacity="0.8">Bild folgt</text>
+</svg>

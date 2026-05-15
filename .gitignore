@@ -1,0 +1,19 @@
+# Framer-CDN-Spiegel — nicht ins Repo, kann aus ZIP wiederhergestellt werden
+framerusercontent.com/
+app.framerstatic.com/
+fonts.gstatic.com/
+events.framer.com/
+api.framer.com/
+framercanvas.com/
+framer.com/
+o20425.ingest.sentry.io/
+_DataURI/
+
+# Lokale Backups
+*.backup.html
+_tmp_extract/
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
