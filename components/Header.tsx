@@ -11,7 +11,7 @@ export function Header() {
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
-        const onScroll = () => setScrolled(window.scrollY > 12);
+        const onScroll = () => setScrolled(window.scrollY > 8);
         onScroll();
         window.addEventListener("scroll", onScroll, { passive: true });
         return () => window.removeEventListener("scroll", onScroll);
@@ -21,77 +21,91 @@ export function Header() {
         <header
             className={cn(
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-                scrolled ? "py-3" : "py-5"
+                scrolled
+                    ? "bg-bg/80 backdrop-blur-xl border-b border-border-strong/70"
+                    : "bg-transparent border-b border-transparent"
             )}
         >
             <Container>
-                <div
-                    className={cn(
-                        "flex items-center justify-between gap-6 rounded-full border px-5 py-3 backdrop-blur-xl transition-all duration-500",
-                        scrolled
-                            ? "border-border-strong/60 bg-bg/70 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.6)]"
-                            : "border-border/40 bg-bg/30"
-                    )}
-                >
-                    <a
-                        href="#hero"
-                        className="font-display text-xl tracking-tight text-fg"
-                    >
-                        {site.name}
-                        <span className="ml-2 text-fg-dim text-sm tracking-widest uppercase">
-                            {site.tagline}
+                <div className="flex items-center justify-between gap-6 py-5">
+                    {/* Logo */}
+                    <a href="#hero" className="flex items-center gap-3 group">
+                        <span className="onair-dot" aria-hidden />
+                        <span className="font-display text-xl tracking-tight text-fg">
+                            {site.name}
+                        </span>
+                        <span className="hidden sm:inline mono-label">
+                            / {site.tagline}
                         </span>
                     </a>
 
-                    <nav className="hidden md:flex items-center gap-8">
-                        {nav.map((item) => (
+                    {/* Center nav */}
+                    <nav className="hidden md:flex items-center gap-1">
+                        {nav.map((item, i) => (
                             <a
                                 key={item.href}
                                 href={item.href}
-                                className="text-sm text-fg-muted hover:text-fg transition-colors"
+                                className="group relative px-4 py-2 text-sm text-fg-muted hover:text-fg transition-colors"
                             >
+                                <span className="mono-label mr-1.5 text-fg-dim group-hover:text-accent transition-colors">
+                                    0{i + 1}
+                                </span>
                                 {item.label}
                             </a>
                         ))}
-                        <a
-                            href="#kontakt"
-                            className="text-sm font-medium text-bg bg-accent hover:bg-accent-hover px-5 py-2.5 rounded-full transition-colors"
-                        >
-                            Kontakt
-                        </a>
                     </nav>
 
+                    {/* CTA */}
+                    <a
+                        href="#kontakt"
+                        className="hidden md:inline-flex items-center gap-2 text-sm text-fg hover:text-accent transition-colors"
+                    >
+                        <span>Kontakt</span>
+                        <span className="mono-label">→</span>
+                    </a>
+
+                    {/* Mobile toggle */}
                     <button
                         onClick={() => setOpen(!open)}
                         className="md:hidden text-fg p-1.5"
                         aria-label="Menü"
                     >
-                        {open ? <X size={22} /> : <Menu size={22} />}
+                        {open ? <X size={20} /> : <Menu size={20} />}
                     </button>
                 </div>
-
-                {open && (
-                    <div className="md:hidden mt-3 rounded-3xl border border-border-strong/60 bg-bg-elev/95 backdrop-blur-xl p-3">
-                        {nav.map((item) => (
-                            <a
-                                key={item.href}
-                                href={item.href}
-                                onClick={() => setOpen(false)}
-                                className="block px-4 py-3 rounded-2xl text-fg-muted hover:bg-bg-card hover:text-fg transition-colors"
-                            >
-                                {item.label}
-                            </a>
-                        ))}
-                        <a
-                            href="#kontakt"
-                            onClick={() => setOpen(false)}
-                            className="block mt-1 px-4 py-3 rounded-2xl bg-accent text-bg text-center font-medium"
-                        >
-                            Kontakt
-                        </a>
-                    </div>
-                )}
             </Container>
+
+            {open && (
+                <div className="md:hidden border-t border-border-strong/60 bg-bg-elev/95 backdrop-blur-xl">
+                    <Container>
+                        <div className="py-4 space-y-1">
+                            {nav.map((item, i) => (
+                                <a
+                                    key={item.href}
+                                    href={item.href}
+                                    onClick={() => setOpen(false)}
+                                    className="flex items-center justify-between py-3 border-b border-border/40 last:border-0 text-fg-muted hover:text-fg"
+                                >
+                                    <span className="flex items-center gap-3">
+                                        <span className="mono-label text-fg-dim">
+                                            0{i + 1}
+                                        </span>
+                                        {item.label}
+                                    </span>
+                                    <span className="mono-label">→</span>
+                                </a>
+                            ))}
+                            <a
+                                href="#kontakt"
+                                onClick={() => setOpen(false)}
+                                className="block py-4 text-accent font-medium"
+                            >
+                                Kontakt aufnehmen →
+                            </a>
+                        </div>
+                    </Container>
+                </div>
+            )}
         </header>
     );
 }
